@@ -16,6 +16,8 @@ import lombok.NoArgsConstructor;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
+import jakarta.persistence.CascadeType;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
