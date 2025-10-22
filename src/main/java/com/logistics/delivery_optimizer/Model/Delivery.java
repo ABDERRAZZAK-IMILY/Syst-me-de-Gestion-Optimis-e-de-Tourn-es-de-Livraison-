@@ -1,7 +1,11 @@
 package com.logistics.delivery_optimizer.Model;
 
+import com.logistics.delivery_optimizer.Model.Enums.DeliveryStatus;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -35,7 +39,13 @@ public class Delivery {
 
     private String preferredTimeWindow;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private DeliveryStatus status;
+
+
     
+
 
 
 
