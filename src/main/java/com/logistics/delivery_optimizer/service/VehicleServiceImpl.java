@@ -32,6 +32,14 @@ public class VehicleServiceImpl implements VehicleService {
         return response;
     }
 
-  
+    @Override
+    public List<VehicleResponseDTO> getAllVehicles(){
+        List<Vehicle> vehicles = vehicleRepository.findAll();
+        List<VehicleResponseDTO> resposne = vehicles.stream()
+                .map(vehicleMapper::toDto)
+                .collect(Collectors.toList());
+        return resposne;
+    }
+
     
 }
