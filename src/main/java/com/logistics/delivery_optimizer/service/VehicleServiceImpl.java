@@ -41,5 +41,12 @@ public class VehicleServiceImpl implements VehicleService {
         return resposne;
     }
 
+    @Override
+    public void deleteVehicle(Long id){
+        Vehicle vehicledelete = vehicleRepository.findById(id).orElseThrow(RuntimeException::new);
+            vehicleRepository.delete(vehicledelete);
+    }
+
+
     
 }
