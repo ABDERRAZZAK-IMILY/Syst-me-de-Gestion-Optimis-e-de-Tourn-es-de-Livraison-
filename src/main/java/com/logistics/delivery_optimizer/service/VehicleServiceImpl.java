@@ -1,5 +1,9 @@
 package com.logistics.delivery_optimizer.service;
 
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
 import com.logistics.delivery_optimizer.Model.Vehicle;
 import com.logistics.delivery_optimizer.dto.VehicleRequestDTO;
 import com.logistics.delivery_optimizer.dto.VehicleResponseDTO;
@@ -16,7 +20,7 @@ public class VehicleServiceImpl implements VehicleService {
     public VehicleResponseDTO registerVehicle(VehicleRequestDTO vehicleRequestDTO){
         Vehicle vehicle = vehicleMapper.toEntity(vehicleRequestDTO);
         Vehicle save = vehicleRepository.save(vehicle);
-        VehicleResponseDTO response = vehicleMapper.tDto(save);
+        VehicleResponseDTO response = vehicleMapper.toDto(save);
         return response;
     }
 
@@ -24,9 +28,10 @@ public class VehicleServiceImpl implements VehicleService {
     @Override
     public VehicleResponseDTO getVehicleInfo(Long vehicleId){
         Vehicle vehicle = vehicleRepository.findById(vehicleId).orElseThrow(RuntimeException::new);
-        VehicleResponseDTO response = vehicleMapper.tDto(vehicle);
+        VehicleResponseDTO response = vehicleMapper.toDto(vehicle);
         return response;
     }
 
+  
     
 }

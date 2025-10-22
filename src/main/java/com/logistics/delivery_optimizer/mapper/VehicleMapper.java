@@ -13,7 +13,7 @@ public class VehicleMapper {
                 .build();
     }
 
-    public VehicleResponseDTO tDto(Vehicle entity){
+    public VehicleResponseDTO toDto(Vehicle entity){
         return VehicleResponseDTO.builder()
                 .id(entity.getId())
                 .licensePlate(entity.getLicensePlate())
