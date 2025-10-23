@@ -17,7 +17,7 @@ public class DeliveryMapper {
                 .volumeM3(dto.getVolumeM3())
                 .preferredTimeWindow(dto.getPreferredTimeWindow())
                 
-                .status(DeliveryStatus.PENDING) 
+                .status(DeliveryStatus.PENDING)
                 
                 .build();
     }
