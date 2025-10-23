@@ -19,6 +19,4 @@ public class DeliveryRequestDTO {
     private double weightKg;
     private double volumeM3;
     private String preferredTimeWindow;
-    private DeliveryStatus status;
-    
 }
