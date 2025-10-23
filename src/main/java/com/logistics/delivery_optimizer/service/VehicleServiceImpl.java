@@ -1,7 +1,6 @@
 package com.logistics.delivery_optimizer.service;
 
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import com.logistics.delivery_optimizer.Model.Vehicle;
