@@ -17,4 +17,11 @@
        <property name="vehicleRepository" ref="vehicleRepository"/>
 </bean>
 
+<bean id="deliveryMapper" class="com.logistics.delivery_optimizer.mapper.DeliveryMapper" ></bean>
+
+<bean id="deliveryServiceImpl" class="com.logistics.delivery_optimizer.service.DeliveryServiceImpl">
+       <property name="deliveryMapper" ref="deliveryMapper"/>
+       <property name="deliveryRepository" ref="deliveryRepository"/>
+</bean>
+
 </beans>
