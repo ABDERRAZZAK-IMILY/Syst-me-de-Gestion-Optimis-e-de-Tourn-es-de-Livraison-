@@ -46,7 +46,7 @@ public class Tour {
     
 
     @OneToMany(mappedBy = "tour",cascade = CascadeType.ALL,orphanRemoval = true,fetch = FetchType.LAZY)
-    @OrderColumn(name = "delivery_order") 
+    @OrderColumn(name = "delivery_order")
     private List<Delivery> deliveries;
     
 }
