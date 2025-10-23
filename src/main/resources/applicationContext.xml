@@ -24,4 +24,8 @@
        <property name="deliveryRepository" ref="deliveryRepository"/>
 </bean>
 
+<bean id="vehicleController" class="com.logistics.delivery_optimizer.Controller.VehicleController">
+       <constructor-arg name="vehicleService" ref="vehicleserviceimpl" ></constructor-arg>
+</bean>
+
 </beans>
