@@ -3,13 +3,18 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:jpa="http://www.springframework.org/schema/data/jpa" 
        xsi:schemaLocation="
-           http://www.springframework.org/schema/beans 
-           http://www.springframework.org/schema/beans/spring-beans.xsd
-           http://www.springframework.org/schema/data/jpa 
-           http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+       http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/data/jpa 
+       http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-    <jpa:repositories base-package="com.logistics.delivery_optimizer.repository" />
+<jpa:repositories base-package="com.logistics.delivery_optimizer.repository" />
 
-    
+<bean id="vehicleMapper" class="com.logistics.delivery_optimizer.mapper.VehicleMapper"/>
+
+<bean id="vehicleserviceimpl" class="com.logistics.delivery_optimizer.service.VehicleServiceImpl">
+       <property name="vehicleMapper" ref="vehicleMapper"/>
+       <property name="vehicleRepository" ref="vehicleRepository"/>
+</bean>
 
 </beans>
