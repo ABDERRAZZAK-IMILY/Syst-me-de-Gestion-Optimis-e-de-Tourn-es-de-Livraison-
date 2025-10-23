@@ -46,6 +46,13 @@ public class VehicleServiceImpl implements VehicleService {
             vehicleRepository.delete(vehicledelete);
     }
 
+    public void setVehicleRepository(VehicleRepository vehicleRepository) {
+        this.vehicleRepository = vehicleRepository;
+    }
+
+    public void setVehicleMapper(VehicleMapper vehicleMapper) {
+        this.vehicleMapper = vehicleMapper;
+    }
 
     
 }
