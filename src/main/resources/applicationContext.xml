@@ -38,5 +38,17 @@
 <bean id="deliveryController" class="com.logistics.delivery_optimizer.Controller.DeliveryController">
        <constructor-arg name="deliveryService" ref="deliveryServiceImpl"></constructor-arg>
 </bean>
+<!--  Optimizer  -->
+<bean id="nearestNeighborOptimizer" class="com.logistics.delivery_optimizer.service.optimizer.NearestNeighborOptimizer"/>
+<bean id="tourServiceImpl" class="com.logistics.delivery_optimizer.service.TourServiceImpl">
+<property name="tourRepository" ref="tourRepository"/>
+<property name="deliveryRepository" ref="deliveryRepository"/>
+<property name="vehicleRepository" ref="vehicleRepository"/>
+<property name="warehouseRepository" ref="warehouseRepository"/>
+<property name="tourOptimizer" ref="nearestNeighborOptimizer"/>
+</bean>
+<bean id="tourController" class="com.logistics.delivery_optimizer.Controller.TourController">
+<constructor-arg name="tourService" ref="tourServiceImpl"/>
+</bean>
 
 </beans>
