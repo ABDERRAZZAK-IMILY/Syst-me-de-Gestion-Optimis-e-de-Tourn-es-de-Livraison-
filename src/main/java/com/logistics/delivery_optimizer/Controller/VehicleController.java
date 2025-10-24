@@ -41,6 +41,10 @@ public class VehicleController {
         return vehicleService.getVehicleInfo(vehicleId);
     }
     
+    @GetMapping
+    public List<VehicleResponseDTO> getAllVehicles(){
+        return vehicleService.getAllVehicles();
+    }
     
     
 }
