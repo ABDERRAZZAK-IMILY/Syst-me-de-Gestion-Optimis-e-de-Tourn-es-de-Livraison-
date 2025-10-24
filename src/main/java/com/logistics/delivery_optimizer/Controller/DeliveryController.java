@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
-
+import java.util.List;
 
 @RestController
 @RequestMapping("/deliveries")
@@ -31,7 +31,10 @@ public class DeliveryController {
     public DeliveryResponseDTO getDelivery(@PathVariable Long deliveryId){
         return deliveryService.getDeliveryById(deliveryId);
     }
-    
 
-    
+    @GetMapping
+    public List<DeliveryResponseDTO> getAllDeliveries(){
+        return deliveryService.getAllDeliveries();
+    }
+
 }
