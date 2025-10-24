@@ -8,6 +8,9 @@ import com.logistics.delivery_optimizer.dto.VehicleResponseDTO;
 import com.logistics.delivery_optimizer.service.VehicleService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @RestController
@@ -25,5 +28,11 @@ public class VehicleController {
     return vehicleService.registerVehicle(vehicleRequestDTO);
 
     }
+
+    @GetMapping
+    public VehicleResponseDTO getVehicle(@RequestParam Long vehicleId){
+        return vehicleService.getVehicleInfo(vehicleId);
+    }
+    
     
 }
