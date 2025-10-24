@@ -33,4 +33,11 @@ public class DistanceCalculator {
         );
     }
 
+    public static double distanceBetween(Delivery d1, Delivery d2) {
+        return calculateDistance(
+            d1.getLatitude(), d1.getLongitude(),
+            d2.getLatitude(), d2.getLongitude()
+        );
+    }
+
 }
