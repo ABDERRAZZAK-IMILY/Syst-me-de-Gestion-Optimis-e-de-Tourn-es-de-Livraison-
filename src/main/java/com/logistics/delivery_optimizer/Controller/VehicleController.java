@@ -6,9 +6,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.logistics.delivery_optimizer.dto.VehicleRequestDTO;
 import com.logistics.delivery_optimizer.dto.VehicleResponseDTO;
 import com.logistics.delivery_optimizer.service.VehicleService;
+
+import jakarta.websocket.server.PathParam;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -29,10 +36,11 @@ public class VehicleController {
 
     }
 
-    @GetMapping
-    public VehicleResponseDTO getVehicle(@RequestParam Long vehicleId){
+    @GetMapping("/{vehicleId}")
+    public VehicleResponseDTO getVehicle(@PathVariable Long vehicleId){
         return vehicleService.getVehicleInfo(vehicleId);
     }
+    
     
     
 }
