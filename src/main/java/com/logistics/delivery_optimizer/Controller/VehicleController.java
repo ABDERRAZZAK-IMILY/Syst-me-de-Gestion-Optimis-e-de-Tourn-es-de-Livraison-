@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -44,6 +45,11 @@ public class VehicleController {
     @GetMapping
     public List<VehicleResponseDTO> getAllVehicles(){
         return vehicleService.getAllVehicles();
+    }
+
+    @DeleteMapping("/{vehicleId}")
+    public void deleteVehicle(@PathVariable Long vehicleId){
+        vehicleService.deleteVehicle(vehicleId);
     }
     
     
