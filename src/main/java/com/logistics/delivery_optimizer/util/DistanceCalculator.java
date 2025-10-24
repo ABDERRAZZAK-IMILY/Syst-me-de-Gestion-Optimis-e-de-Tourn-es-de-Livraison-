@@ -1,5 +1,8 @@
 package com.logistics.delivery_optimizer.util;
 
+import com.logistics.delivery_optimizer.Model.Delivery;
+import com.logistics.delivery_optimizer.Model.Warehouse;
+
 public class DistanceCalculator {
     
     private DistanceCalculator() {}
@@ -23,5 +26,11 @@ public class DistanceCalculator {
         return EARTH_RADIUS_KM * c;
     }
 
+    public static double distanceBetween(Warehouse warehouse, Delivery delivery) {
+        return calculateDistance(
+            warehouse.getLatitude(), warehouse.getLongitude(),
+            delivery.getLatitude(), delivery.getLongitude()
+        );
+    }
 
 }
