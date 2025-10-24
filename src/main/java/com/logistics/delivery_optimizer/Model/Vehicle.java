@@ -35,7 +35,7 @@ public class Vehicle {
     @Column(nullable = false)
     private String licensePlate;
     
-    @OneToMany(mappedBy = "vehicle", fetch = FetchType.LAZY) 
+    @OneToMany(mappedBy = "vehicle", fetch = FetchType.LAZY)
     private List<Tour> tours;
     
 }
