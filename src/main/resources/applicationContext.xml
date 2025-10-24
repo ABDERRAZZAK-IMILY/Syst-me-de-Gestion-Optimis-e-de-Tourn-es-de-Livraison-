@@ -8,14 +8,25 @@
        http://www.springframework.org/schema/data/jpa
        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
+<!--jpa -->
+
 <jpa:repositories base-package="com.logistics.delivery_optimizer.repository" />
 
+
+<!-- vehicle-->
 <bean id="vehicleMapper" class="com.logistics.delivery_optimizer.mapper.VehicleMapper"/>
 
 <bean id="vehicleserviceimpl" class="com.logistics.delivery_optimizer.service.VehicleServiceImpl">
        <property name="vehicleMapper" ref="vehicleMapper"/>
        <property name="vehicleRepository" ref="vehicleRepository"/>
 </bean>
+
+<bean id="vehicleController" class="com.logistics.delivery_optimizer.Controller.VehicleController">
+       <constructor-arg name="vehicleService" ref="vehicleserviceimpl" ></constructor-arg>
+</bean>
+
+
+<!-- delivery-->
 
 <bean id="deliveryMapper" class="com.logistics.delivery_optimizer.mapper.DeliveryMapper" ></bean>
 
@@ -24,8 +35,10 @@
        <property name="deliveryRepository" ref="deliveryRepository"/>
 </bean>
 
-<bean id="vehicleController" class="com.logistics.delivery_optimizer.Controller.VehicleController">
-       <constructor-arg name="vehicleService" ref="vehicleserviceimpl" ></constructor-arg>
+<bean id="deliveryController" class="com.logistics.delivery_optimizer.Controller.DeliveryController">
+       <constructor-arg name="deliveryService" ref="deliveryServiceImpl"></constructor-arg>
 </bean>
+
+
 
 </beans>
