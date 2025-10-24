@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 @RestController
 @RequestMapping("/deliveries")
@@ -36,5 +37,11 @@ public class DeliveryController {
     public List<DeliveryResponseDTO> getAllDeliveries(){
         return deliveryService.getAllDeliveries();
     }
+
+    @DeleteMapping("/{deliveryId}")
+    public void deleteDelivery(@PathVariable Long deliveryId){
+        deliveryService.deleteDelivery(deliveryId);
+    }
+
 
 }
