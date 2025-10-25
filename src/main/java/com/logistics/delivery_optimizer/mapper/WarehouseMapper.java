@@ -2,14 +2,14 @@ package com.logistics.delivery_optimizer.mapper;
 
 import com.logistics.delivery_optimizer.dto.WarehouseRequestDTO;
 import com.logistics.delivery_optimizer.dto.WarehouseResponseDTO;
-import com.logistics.delivery_optimizer.model.Warehouse;
+import com.logistics.delivery_optimizer.Model.Warehouse;
 
 
 public class WarehouseMapper {
 
     public  Warehouse toEntity(WarehouseRequestDTO dto) {
-    
-        return warehouse.builder()
+
+        return Warehouse.builder()
                 .name(dto.getName())
                 .longitude(dto.getLongitude())
                 .latitude(dto.getLatitude())
