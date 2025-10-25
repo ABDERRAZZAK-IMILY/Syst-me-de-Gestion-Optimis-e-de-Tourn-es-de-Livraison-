@@ -51,4 +51,16 @@
 <constructor-arg name="tourService" ref="tourServiceImpl"/>
 </bean>
 
+<!-- warehouse-->
+<bean id="warehouseMapper" class="com.logistics.delivery_optimizer.mapper.WarehouseMapper"/>
+
+<bean id="warehouseServiceImpl" class="com.logistics.delivery_optimizer.service.WarehouseServiceImpl">
+<property name="warehouseMapper" ref="warehouseMapper"/>
+<property name="warehouseRepository" ref="warehouseRepository"/>
+</bean>
+
+<bean id="warehouseController" class="com.logistics.delivery_optimizer.Controller.WarehouseController">
+<constructor-arg name="warehouseService" ref="warehouseServiceImpl" />
+</bean>
+
 </beans>
