@@ -1,4 +1,6 @@
 package com.logistics.delivery_optimizer.dto;
+import java.time.LocalTime;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,6 +15,6 @@ public class WarehouseResponseDTO {
     private String name;
     private double longitude;
     private double latitude;
-    private String openingTime;
-    private String closingTime;
+    private LocalTime openingTime;
+    private LocalTime closingTime;
 }
