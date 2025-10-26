@@ -109,10 +109,57 @@ Une **collection Postman** (`postman.json`) est fournie dans le projet. Importer
 
 ---
 
-## 🧠 8. Structure du projet (Aperçu)
+## 🧠 8. Structure du projet
 
-com.logistics.delivery_optimizer ├── Controller/ # Couche API (REST Controllers) │ ├── VehicleController.java │ ├── DeliveryController.java │ ├── WarehouseController.java │ └── TourController.java ├── dto/ # Couche DTO (Data Transfer Objects) │ ├── VehicleRequestDTO.java │ ├── VehicleResponseDTO.java │ └── ... (autres DTOs) ├── mapper/ # Couche Mapper (Conversion DTO <-> Entity) │ ├── VehicleMapper.java │ └── ... (autres Mappers) ├── Model/ # Couche Modèle (Entités JPA & Enums) │ ├── Entities/ │ │ ├── Vehicle.java │ │ ├── Delivery.java │ │ ├── Warehouse.java │ │ └── Tour.java │ └── Enums/ │ ├── VehicleType.java │ └── DeliveryStatus.java ├── repository/ # Couche Repository (Accès aux données - Spring Data JPA) │ ├── VehicleRepository.java │ └── ... (autres Repositories) ├── service/ # Couche Service (Logique métier) │ ├── VehicleService.java (Interface) │ ├── VehicleServiceImpl.java (Implémentation) │ ├── ... (autres Services) │ └── optimizer/ # Sous-package pour les algorithmes (Strategy Pattern) │ ├── TourOptimizer.java (Interface Stratégie) │ ├── NearestNeighborOptimizer.java (Implémentation) │ └── ClarkeWrightOptimizer.java (Implémentation) ├── util/ # Utilitaires │ └── DistanceCalculator.java ├── DeliveryOptimizerApplication.java # Point d'entrée Spring Boot └── resources/ ├── application.properties # Configuration générale & DB └── applicationContext.xml # Configuration manuelle des Beans (IoC)
-
+com.logistics.delivery_optimizer
+├── Controller/ # Couche API (REST Controllers)
+│ ├── VehicleController.java
+│ ├── DeliveryController.java
+│ ├── WarehouseController.java
+│ └── TourController.java
+│
+├── dto/ # Couche DTO (Data Transfer Objects)
+│ ├── VehicleRequestDTO.java
+│ ├── VehicleResponseDTO.java
+│ └── ... (autres DTOs)
+│
+├── mapper/ # Couche Mapper (Conversion DTO <-> Entity)
+│ ├── VehicleMapper.java
+│ └── ... (autres Mappers)
+│
+├── Model/ # Couche Modèle (Entités JPA & Enums)
+│ ├── Entities/
+│ │ ├── Vehicle.java
+│ │ ├── Delivery.java
+│ │ ├── Warehouse.java
+│ │ └── Tour.java
+│ │
+│ └── Enums/
+│ ├── VehicleType.java
+│ └── DeliveryStatus.java
+│
+├── repository/ # Couche Repository (Accès aux données - Spring Data JPA)
+│ ├── VehicleRepository.java
+│ └── ... (autres Repositories)
+│
+├── service/ # Couche Service (Logique métier)
+│ ├── VehicleService.java (Interface)
+│ ├── VehicleServiceImpl.java (Implémentation)
+│ ├── ... (autres Services)
+│ │
+│ └── optimizer/ # Sous-package pour les algorithmes (Strategy Pattern)
+│ ├── TourOptimizer.java (Interface Stratégie)
+│ ├── NearestNeighborOptimizer.java (Implémentation)
+│ └── ClarkeWrightOptimizer.java (Implémentation)
+│
+├── util/ # Utilitaires
+│ └── DistanceCalculator.java
+│
+├── DeliveryOptimizerApplication.java # Point d'entrée Spring Boot
+│
+└── resources/
+├── application.properties # Configuration générale & DB
+└── applicationContext.xml # Configuration manuelle des Beans (IoC)
 
 ---
 
