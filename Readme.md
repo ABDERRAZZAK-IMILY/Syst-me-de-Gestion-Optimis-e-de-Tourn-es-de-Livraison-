@@ -111,6 +111,8 @@ Une **collection Postman** (`postman.json`) est fournie dans le projet. Importer
 
 ## 🧠 8. Structure du projet
 
+```
+
 com.logistics.delivery_optimizer
 ├── Controller/ # Couche API (REST Controllers)
 │ ├── VehicleController.java
@@ -161,6 +163,7 @@ com.logistics.delivery_optimizer
 ├── application.properties # Configuration générale & DB
 └── applicationContext.xml # Configuration manuelle des Beans (IoC)
 
+```
 ---
 
 ## 📈 9. Comparaison des Algorithmes (Objectif du projet)
