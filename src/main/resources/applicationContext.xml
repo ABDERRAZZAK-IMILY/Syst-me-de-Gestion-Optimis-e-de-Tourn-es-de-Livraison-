@@ -57,7 +57,8 @@
         <property name="deliveryRepository" ref="deliveryRepository"/>
         <property name="vehicleRepository" ref="vehicleRepository"/>
         <property name="warehouseRepository" ref="warehouseRepository"/>
-        <property name="tourOptimizer" ref="nearestNeighborOptimizer" /> <property name="tourMapper" ref="tourMapper"/> 
+        <property name="tourOptimizer" ref="nearestNeighborOptimizer" /> 
+        <property name="tourMapper" ref="tourMapper"/> 
     </bean>
 
     <bean id="tourController" class="com.logistics.delivery_optimizer.Controller.TourController">

@@ -20,6 +20,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.CascadeType;
 import java.util.List;
 
+import lombok.EqualsAndHashCode;
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -47,6 +49,7 @@ public class Tour {
 
     @OneToMany(mappedBy = "tour",cascade = CascadeType.ALL,orphanRemoval = true,fetch = FetchType.LAZY)
     @OrderColumn(name = "delivery_order")
+    @EqualsAndHashCode.Exclude
     private List<Delivery> deliveries;
     
 }
