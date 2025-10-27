@@ -7,8 +7,6 @@ import com.logistics.delivery_optimizer.Model.Enums.VehicleType;
 import com.logistics.delivery_optimizer.util.DistanceCalculator;
 
 import java.util.*;
-import java.util.stream.Collectors;
-
 
 public class ClarkeWrightOptimizer implements TourOptimizer {
 

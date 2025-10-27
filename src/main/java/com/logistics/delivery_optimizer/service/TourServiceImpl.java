@@ -4,12 +4,15 @@ import com.logistics.delivery_optimizer.Model.Delivery;
 import com.logistics.delivery_optimizer.Model.Tour;
 import com.logistics.delivery_optimizer.Model.Vehicle;
 import com.logistics.delivery_optimizer.Model.Warehouse;
+import com.logistics.delivery_optimizer.mapper.TourMapper;
 import com.logistics.delivery_optimizer.repository.DeliveryRepository;
 import com.logistics.delivery_optimizer.repository.TourRepository;
 import com.logistics.delivery_optimizer.repository.VehicleRepository;
 import com.logistics.delivery_optimizer.repository.WarehouseRepository;
 import com.logistics.delivery_optimizer.service.optimizer.TourOptimizer;
 import com.logistics.delivery_optimizer.util.DistanceCalculator;
+import com.logistics.delivery_optimizer.dto.TourResponseDto;
+import com.logistics.delivery_optimizer.mapper.TourMapper;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -24,9 +27,11 @@ public class TourServiceImpl implements TourService {
     private VehicleRepository vehicleRepository;
     private WarehouseRepository warehouseRepository;
 
+    private TourMapper tourMapper;
+
 
     @Override
-    public Tour createOptimizedTour(Long vehicleId, Long warehouseId, List<Long> deliveryIds) {
+    public TourResponseDto createOptimizedTour(Long vehicleId, Long warehouseId, List<Long> deliveryIds) {
         
         Vehicle vehicle = vehicleRepository.findById(vehicleId)
                 .orElseThrow(() -> new RuntimeException("Vehicle not found"));
@@ -49,7 +54,15 @@ public class TourServiceImpl implements TourService {
             d.setStatus(com.logistics.delivery_optimizer.Model.Enums.DeliveryStatus.IN_TRANSIT);
         }
 
-        return tourRepository.save(newTour);
+        Tour savedTour = tourRepository.save(newTour);
+
+        double distance = calculateTourDistance(savedTour.getWarehouse(), savedTour.getDeliveries());
+        
+        TourResponseDto responseDto = tourMapper.toDto(savedTour);
+        
+        responseDto.setTotalDistanceKm(distance);
+
+        return responseDto;
     }
 
     @Override
@@ -104,5 +117,9 @@ public class TourServiceImpl implements TourService {
 
     public void setWarehouseRepository(WarehouseRepository warehouseRepository) {
         this.warehouseRepository = warehouseRepository;
+    }
+
+    public void setTourMapper(TourMapper tourMapper) {
+        this.tourMapper = tourMapper;
     }
 }
