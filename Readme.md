@@ -54,7 +54,7 @@ Une exigence stricte de ce projet est **l'interdiction d'utiliser les annotation
 
 1.  **Cloner le dépôt :**
     ```bash
-    git clone <your-repo-url>
+    git clone <https://github.com/ABDERRAZZAK-IMILY/Syst-me-de-Gestion-Optimis-e-de-Tourn-es-de-Livraison-.git>
     cd Syst-me-de-Gestion-Optimis-e-de-Tourn-es-de-Livraison- 
     ```
 2.  **(Optionnel) Configurer les variables d'environnement :**
